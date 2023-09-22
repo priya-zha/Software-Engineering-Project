@@ -6,6 +6,7 @@ power of artificial intelligence and machine learning to empower blind users wit
 visual information.
 Through extensive user research and feedback from the visually impaired community, we have
 established the following objectives for our project:
+
 ● Enable visually impaired users to capture images and videos using their mobile devices.
 ● Implement a robust ML-powered visual chatbot system that can accurately describe and
 interpret the content of captured images and videos.
@@ -17,6 +18,7 @@ and seek information related to the captured visual content.
 various mobile platforms.
 ● Enhance the user's daily life by providing them with timely and relevant visual
 information, fostering independence, and improving overall quality of life.
+
 Our mobile application, designed with user-centric principles, will not only bridge the
 accessibility gap but also open new opportunities for visually impaired individuals to explore
 and interact with the visual world around them. By harnessing the potential of AI and machine
