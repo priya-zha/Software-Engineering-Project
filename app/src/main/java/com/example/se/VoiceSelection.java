@@ -45,6 +45,7 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
     private int gender = 1;
     private int increment=1;
     String selectedVoiceName;
+    String selectedVoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +62,16 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
         voiceRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton selectedRadioButton = findViewById(checkedId);
             selectedRadioButton.setBackgroundResource(R.drawable.radio_button);
-            String selectedVoice = selectedRadioButton.getText().toString().toLowerCase();
+            selectedVoice = selectedRadioButton.getText().toString().toLowerCase();
             textToSpeech.setVoice(getDesiredVoice(selectedVoice));
+
             if (selectedVoice.equals("men")){
-                textToSpeech.speak("You have selected the male voice. Say 'Play' to hear a sample voice.", TextToSpeech.QUEUE_FLUSH, null);
+                textToSpeech.speak("You have selected the male voice.", TextToSpeech.QUEUE_FLUSH, null);
+
             }
             else{
-                textToSpeech.speak("You have selected the female voice. Say 'Play' to hear a sample voice.", TextToSpeech.QUEUE_FLUSH, null);
+                textToSpeech.speak("You have selected the female voice.", TextToSpeech.QUEUE_FLUSH, null);
+
 
             }
 
@@ -84,7 +88,11 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
         Button selectButton = findViewById(R.id.selectButton);
         selectButton.setOnClickListener(v -> {
             // Prompt the user for confirmation or selection
-            textToSpeech.speak("Are you sure you want to select this voice? Say 'Select' or tap the 'Select' button.", TextToSpeech.QUEUE_FLUSH, null);
+            Intent nextActivityIntent = new Intent(VoiceSelection.this, HelpScreen.class);
+            nextActivityIntent.putExtra("selectedVoiceName", selectedVoice);
+            // You can add more properties here if needed
+            startActivity(nextActivityIntent);
+            textToSpeech.speak("Voice has been selected", TextToSpeech.QUEUE_FLUSH, null);
         });
     }
     @Override
