@@ -84,15 +84,23 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
 //        Button playButton = findViewById(R.id.playButton);
 //        playButton.setOnClickListener(v -> playSampleVoice());
 
+        RadioButton radioMale = findViewById(R.id.radioMale);
+        RadioButton radioFemale = findViewById(R.id.radioFemale);
         // Select button functionality
         Button selectButton = findViewById(R.id.selectButton);
         selectButton.setOnClickListener(v -> {
-            // Prompt the user for confirmation or selection
-            Intent nextActivityIntent = new Intent(VoiceSelection.this, HelpScreen.class);
-            nextActivityIntent.putExtra("selectedVoiceName", selectedVoice);
-            // You can add more properties here if needed
-            startActivity(nextActivityIntent);
-            textToSpeech.speak("Voice has been selected", TextToSpeech.QUEUE_FLUSH, null);
+            if (radioMale.isChecked() || radioFemale.isChecked()){
+                // Prompt the user for confirmation or selection
+                Intent nextActivityIntent = new Intent(VoiceSelection.this, HelpScreen.class);
+                nextActivityIntent.putExtra("selectedVoiceName", selectedVoice);
+                // You can add more properties here if needed
+                startActivity(nextActivityIntent);
+                textToSpeech.speak("Voice has been selected", TextToSpeech.QUEUE_FLUSH, null);
+                finish();
+            } else {
+                Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
     @Override
@@ -488,6 +496,24 @@ private void playSampleVoice() {
                 Toast.makeText(this, "Text-to-Speech initialization failed", Toast.LENGTH_SHORT).show();
             }
         }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //stopListening();
+        if (speechRecognizer != null) {
+            try {
+                Toast.makeText(this, "destroy", Toast.LENGTH_SHORT).show();
+
+                speechRecognizer.cancel();
+                speechRecognizer.destroy();
+            } catch (Exception e) {
+                // Handle any exceptions that may occur during cancel and destroy.
+                e.printStackTrace(); // You can also log the exception or perform other error handling here.
+            }
+
+        }
+    }
 }
 
 
