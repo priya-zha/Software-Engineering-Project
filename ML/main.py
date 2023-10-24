@@ -27,11 +27,9 @@ def process_image():
         uploaded_image = request.files['image']
         app.logger.info("uploaded file %s",uploaded_image.filename)
         print(uploaded_image)
-        #[REFACTOR 3]
-        # instead of if uploaded_image.filename != '':
-        # Use if image in request.files and uploaded_image.filename !='':
-        # This reduces errors
-        if uploaded_image.filename != '':
+        
+        if "image" in request.files and  request.files["image"].filename != '':
+            uploaded_image=request.files["image"]
             image = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_COLOR)
 
             model = YOLO("yolov5s.pt")
