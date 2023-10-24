@@ -30,6 +30,7 @@ def process_image():
         
         if "image" in request.files and  request.files["image"].filename != '':
             uploaded_image=request.files["image"]
+            # Update the code to read RGB image.
             image = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_COLOR)
 
             model = YOLO("yolov5s.pt")
