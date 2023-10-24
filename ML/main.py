@@ -18,12 +18,7 @@ ZONE_POLYGON = np.array([
     [0, 1]
 ])
 
-#[REFACTOR 1] Can remove this function in refactoring
-def parse_arguments() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="YOLOv8 live")
-    parser.add_argument("--image-path", required=True, help="Path to the input image")
-    args = parser.parse_args()
-    return args
+
 
 @app.route("/process-image", methods=["POST"])
 def process_image():
