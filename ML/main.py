@@ -38,8 +38,7 @@ def process_image():
             detections = sv.Detections.from_ultralytics(result)
             labels = [
                 f"{model.model.names[class_id]} {confidence:0.2f}"
-                for _, confidence, class_id, _
-                in detections
+                for _,_, confidence, class_id, _ in detections
             ]
             image = sv.BoxAnnotator(thickness=2, text_thickness=2, text_scale=1).annotate(image, detections, labels)
             success, encoded_image = cv2.imencode(".jpg", image)
