@@ -30,15 +30,15 @@ def process_image():
         
         if "image" in request.files and  request.files["image"].filename != '':
             uploaded_image=request.files["image"]
+            # Update the code to read RGB image.
             image = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_COLOR)
 
-            model = YOLO("yolov5s.pt")
+            model = YOLO("yolov8s.pt")
             result = model(image, agnostic_nms=True)[0]
-            detections = sv.Detections.from_yolov8(result)
+            detections = sv.Detections.from_ultralytics(result)
             labels = [
                 f"{model.model.names[class_id]} {confidence:0.2f}"
-                for _, confidence, class_id, _
-                in detections
+                for _,_, confidence, class_id, _ in detections
             ]
             image = sv.BoxAnnotator(thickness=2, text_thickness=2, text_scale=1).annotate(image, detections, labels)
             success, encoded_image = cv2.imencode(".jpg", image)
