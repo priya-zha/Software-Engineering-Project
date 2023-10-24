@@ -97,7 +97,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     protected void onResume() {
 //        Toast.makeText(GetStarted.this, "3", Toast.LENGTH_SHORT).show();
         super.onResume();
-        speakInstructionsAndStartListening();
+        speakInstructionsAndStartListening(30000);
     }
 
     public void startListening() {
@@ -122,6 +122,10 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                     navigateToSecondPage();
 
                 }
+                else{
+                    textToSpeech.speak("Sorry. I didn't get you. Can you please say start to move forward?", TextToSpeech.QUEUE_FLUSH, null);
+                     speakInstructionsAndStartListening(5000);
+                }
             }
         }
        // isListening = false;
@@ -145,7 +149,7 @@ protected void onPause() {
     }
 }
 
-    public void speakInstructionsAndStartListening() {
+    public void speakInstructionsAndStartListening(int a) {
 //    textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
 //    Toast.makeText(this, "what happenned", Toast.LENGTH_SHORT).show();
     // Delay for a few seconds before starting speech recognition
@@ -157,7 +161,7 @@ protected void onPause() {
         public void run() {
             startListening();
         }
-    }, 30000); // Adjust the delay time as needed (e.g., 5000 milliseconds for a 5-second delay)
+    }, a); // Adjust the delay time as needed (e.g., 5000 milliseconds for a 5-second delay)
 }
     private void Vibration(){
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -210,7 +214,7 @@ protected void onPause() {
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             // Text-to-Speech initialization is successful
-            textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. The app uses vibrations to indicate different app states like idle, listening,generating text, and such say instructions to feel the difference in vibration from listening and when the app is generating text. Click on the 'Start' button or you can say 'Start' when you hear a notification sound and feel the vibration to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
+            textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. The app uses vibrations to indicate different app states like idle, listening,generating text, and such say instructions to feel the difference in vibration from listening and when the app is generating text. You can say 'Start' when you hear a notification sound and feel the vibration to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
 
         } else {
             Toast.makeText(this, "Text-to-Speech initialization failed", Toast.LENGTH_SHORT).show();

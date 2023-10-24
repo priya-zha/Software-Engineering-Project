@@ -179,7 +179,7 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             if (matches != null && !matches.isEmpty()) {
                 String recognizedText = matches.get(0).toLowerCase();
-                if (recognizedText.equals("men") || recognizedText.equals("man")) {
+                if (recognizedText.equals("men") || recognizedText.equals("man") || recognizedText.equals("boy") || recognizedText.equals("male") ||recognizedText.equals("gentlemen") || recognizedText.equals("gentleman")) {
                     // User selected "male" voice preference
                     // Enable the male radio button
                         Vibration();
@@ -188,13 +188,14 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
                         selectedRadioButton.setChecked(true);
                         selectedRadioButton.setBackgroundResource(R.drawable.radio_button);
 
-                    String selectedVoice = selectedRadioButton.getText().toString().toLowerCase();
+                        String selectedVoice = selectedRadioButton.getText().toString().toLowerCase();
 
                         // Set the desired voice based on the selected voice
                         textToSpeech.setVoice(getDesiredVoice(selectedVoice));
                         textToSpeech.speak("This is a male sample voice. Do you want to select this voice? If yes, please say 'Select'. If no, please say 'No' so that we can play the female sample voice", TextToSpeech.QUEUE_FLUSH, null);
                     }
-                  else if (recognizedText.equals("women") || recognizedText.equals("woman")){
+                else if (recognizedText.equals("woman") || recognizedText.equals("women") || recognizedText.equals("girl") || recognizedText.equals("female") ||recognizedText.equals("lady") || recognizedText.equals("ladies")) {
+
                     // User selected "female" voice preference
                     // Enable the female radio button
                     Vibration();
@@ -352,6 +353,12 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
 
 
 
+
+                }
+                else if(recognizedText.equals("back") || recognizedText.equals("go back")  ){
+                    Intent intent = new Intent(this, GetStarted.class);
+                    startActivity(intent);
+                    finish();
 
                 }
 
