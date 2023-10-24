@@ -55,39 +55,6 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         textToSpeech = new TextToSpeech(this, this);
         instructionsSpoken = false;
-
-        // Set up the UtteranceProgressListener
-        textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
-            @Override
-            public void onStart(String utteranceId) {
-                // Speech has started
-                // You can handle the start of speech here
-                Toast.makeText(GetStarted.this, "1", Toast.LENGTH_SHORT).show();
-                textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-
-            }
-
-            @Override
-            public void onDone(String utteranceId) {
-                // Speech has finished, start listening if not already listening
-                if (!isListening) {
-                    Toast.makeText(GetStarted.this, "2", Toast.LENGTH_SHORT).show();
-                    startListening();
-                }
-            }
-
-            @Override
-            public void onError(String utteranceId) {
-                // Handle any errors
-            }
-        });
-
-//        start.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navigateToSecondPage();
-//            }
-//        });
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,9 +65,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
 
     @Override
     protected void onResume() {
-//        Toast.makeText(GetStarted.this, "3", Toast.LENGTH_SHORT).show();
         super.onResume();
-        //speakInstructionsAndStartListening(30000);
         if (!instructionsSpoken) {
             speakInstructionsAndStartListening(30000);
             instructionsSpoken = true; // Set the flag to true after speaking the instructions
@@ -108,7 +73,6 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     }
 
     public void startListening() {
-        // Start listening for voice input
         Vibration();
         isListening = true;
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -119,7 +83,6 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == SPEECH_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             if (matches != null && !matches.isEmpty()) {
@@ -128,22 +91,15 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                     // User said "start"
                     start.setBackgroundColor(Color.parseColor("#FF0000"));
                     navigateToSecondPage();
-
                 }
                 else{
+
                     textToSpeech.speak("Sorry. I didn't get you. Can you please say start to move forward?", TextToSpeech.QUEUE_FLUSH, null);
                      speakInstructionsAndStartListening(5000);
                 }
             }
         }
-       // isListening = false;
     }
-
-//    private void speakInstructions() {
-//        // Use TextToSpeech to provide voice instructions.
-//        isListening = false;
-//        textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-//    }
 
 @Override
 protected void onPause() {
@@ -157,14 +113,8 @@ protected void onPause() {
         speechRecognizer.destroy();
     }
 }
-
     public void speakInstructionsAndStartListening(int a) {
-//    textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-//    Toast.makeText(this, "what happenned", Toast.LENGTH_SHORT).show();
-    // Delay for a few seconds before starting speech recognition
        Vibration();
-       // textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or you can say 'Start' when you hear a notification sound to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-
         new Handler().postDelayed(new Runnable() {
         @Override
         public void run() {
@@ -179,8 +129,6 @@ protected void onPause() {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.VIBRATE) == PackageManager.PERMISSION_GRANTED) {
                     vibrator.vibrate(VibrationEffect.createOneShot(100, VibrationEffect.DEFAULT_AMPLITUDE));
                 } else {
-                    // Handle the case where vibration permission is not granted
-                    // You might request the permission here
                 }
             } else {
                 vibrator.vibrate(100);
@@ -190,8 +138,6 @@ protected void onPause() {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        // Release the SpeechRecognizer when the activity is destroyed
         stopListening(); // Stop it here
 
         if (speechRecognizer != null) {
@@ -199,8 +145,6 @@ protected void onPause() {
             speechRecognizer.destroy();
         }
     }
-
-
 
     public void stopListening() {
         // Stop speech recognition if needed
@@ -219,7 +163,6 @@ protected void onPause() {
         finish();
 
     }
-
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
