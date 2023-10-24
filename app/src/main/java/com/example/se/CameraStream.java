@@ -18,9 +18,9 @@ public class CameraStream extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_stream);
-        Button b = (Button) findViewById(R.id.camera_button);
+        Button cameraButton = (Button) findViewById(R.id.camera_button);
 
-        b.setOnClickListener(new View.OnClickListener() {
+        cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);

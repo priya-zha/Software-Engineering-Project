@@ -43,7 +43,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     private static final int SPEECH_REQUEST_CODE = 101;
     private SpeechRecognizer speechRecognizer;
     private TextToSpeech textToSpeech;
-    private Button start;
+    private Button startButton;
     private boolean instructionsSpoken = false;
     private boolean isListening = false;
 
@@ -51,12 +51,29 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_started);
-        start = findViewById(R.id.start);
+        startButton = findViewById(R.id.start);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         textToSpeech = new TextToSpeech(this, this);
         instructionsSpoken = false;
-
         // Set up the UtteranceProgressListener
+        UtteranceProgressListener();
+
+
+//        start.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                navigateToSecondPage();
+//            }
+//        });
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            navigateToSecondPage();
+            }
+        });
+    }
+
+    public void UtteranceProgressListener() {
         textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
             @Override
             public void onStart(String utteranceId) {
@@ -64,9 +81,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                 // You can handle the start of speech here
                 Toast.makeText(GetStarted.this, "1", Toast.LENGTH_SHORT).show();
                 textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-
             }
-
             @Override
             public void onDone(String utteranceId) {
                 // Speech has finished, start listening if not already listening
@@ -75,23 +90,9 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                     startListening();
                 }
             }
-
             @Override
             public void onError(String utteranceId) {
                 // Handle any errors
-            }
-        });
-
-//        start.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navigateToSecondPage();
-//            }
-//        });
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            navigateToSecondPage();
             }
         });
     }
@@ -126,7 +127,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                 String recognizedText = matches.get(0).toLowerCase();
                 if (recognizedText.equals("start")) {
                     // User said "start"
-                    start.setBackgroundColor(Color.parseColor("#FF0000"));
+                    startButton.setBackgroundColor(Color.parseColor("#FF0000"));
                     navigateToSecondPage();
 
                 }

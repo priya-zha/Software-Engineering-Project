@@ -38,7 +38,11 @@ public class PermissionDenied extends AppCompatActivity implements TextToSpeech.
             public void onClick(DialogInterface dialog, int which) {
                 // Handle "Back" button press.
                 // In this example, we just finish the current activity.
-                openAppSettings();
+                //openAppSettings();
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivityForResult(intent, PERMISSION_SETTINGS_REQUEST_CODE);
             }
         });
         builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
@@ -52,17 +56,9 @@ public class PermissionDenied extends AppCompatActivity implements TextToSpeech.
 
         AlertDialog dialog = builder.create();
         dialog.show();
-
-
     }
 
-    private void openAppSettings() {
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package", getPackageName(), null);
-        intent.setData(uri);
-        startActivityForResult(intent, PERMISSION_SETTINGS_REQUEST_CODE);
-
-    }
+    //private void openAppSettings() { }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

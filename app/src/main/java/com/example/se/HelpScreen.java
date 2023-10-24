@@ -31,7 +31,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
     private SpeechRecognizer speechRecognizer;
     private boolean isListening = false;
     private static final int SPEECH_REQUEST_CODE = 101;
-    Button next;
+    Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
         selectedVoiceName = intent.getStringExtra("selectedVoiceName");
         textToSpeech = new TextToSpeech(this, this);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-        next = findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
+        nextButton = findViewById(R.id.next);
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateToSecondPage();
@@ -77,7 +77,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
                 String recognizedText = matches.get(0).toLowerCase();
                 if (recognizedText.equals("next")) {
                     // User said "start"
-                     next.setBackgroundColor(Color.parseColor("#FF0000"));
+                    nextButton.setBackgroundColor(Color.parseColor("#FF0000"));
                     navigateToSecondPage();
 
                 } else if (recognizedText.equals("back")) {
