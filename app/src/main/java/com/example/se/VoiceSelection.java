@@ -62,14 +62,12 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
             RadioButton selectedRadioButton = findViewById(checkedId);
             selectedRadioButton.setBackgroundResource(R.drawable.radio_button);
             String selectedVoice = selectedRadioButton.getText().toString().toLowerCase();
-//            textToSpeech.setVoice(getDesiredVoice(selectedVoice));
-            if (selectedVoice.equals("male")){
+            textToSpeech.setVoice(getDesiredVoice(selectedVoice));
+            if (selectedVoice.equals("men")){
                 textToSpeech.speak("You have selected the male voice. Say 'Play' to hear a sample voice.", TextToSpeech.QUEUE_FLUSH, null);
-
             }
             else{
                 textToSpeech.speak("You have selected the female voice. Say 'Play' to hear a sample voice.", TextToSpeech.QUEUE_FLUSH, null);
-
 
             }
 

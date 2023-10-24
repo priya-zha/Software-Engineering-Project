@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -76,6 +77,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
                 String recognizedText = matches.get(0).toLowerCase();
                 if (recognizedText.equals("next")) {
                     // User said "start"
+                     next.setBackgroundColor(Color.parseColor("#FF0000"));
                     navigateToSecondPage();
 
                 } else if (recognizedText.equals("back")) {

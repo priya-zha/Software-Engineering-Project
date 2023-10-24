@@ -2,6 +2,7 @@ package com.example.se;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Handler;
 import android.os.VibrationEffect;
@@ -43,6 +44,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     private SpeechRecognizer speechRecognizer;
     private TextToSpeech textToSpeech;
     private Button start;
+    private boolean instructionsSpoken = false;
     private boolean isListening = false;
 
     @Override
@@ -52,6 +54,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
         start = findViewById(R.id.start);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         textToSpeech = new TextToSpeech(this, this);
+        instructionsSpoken = false;
 
         // Set up the UtteranceProgressListener
         textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
@@ -97,7 +100,11 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     protected void onResume() {
 //        Toast.makeText(GetStarted.this, "3", Toast.LENGTH_SHORT).show();
         super.onResume();
-        speakInstructionsAndStartListening(30000);
+        //speakInstructionsAndStartListening(30000);
+        if (!instructionsSpoken) {
+            speakInstructionsAndStartListening(30000);
+            instructionsSpoken = true; // Set the flag to true after speaking the instructions
+        }
     }
 
     public void startListening() {
@@ -119,6 +126,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
                 String recognizedText = matches.get(0).toLowerCase();
                 if (recognizedText.equals("start")) {
                     // User said "start"
+                    start.setBackgroundColor(Color.parseColor("#FF0000"));
                     navigateToSecondPage();
 
                 }
@@ -136,6 +144,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
 //        isListening = false;
 //        textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
 //    }
+
 @Override
 protected void onPause() {
     super.onPause();
@@ -190,6 +199,7 @@ protected void onPause() {
             speechRecognizer.destroy();
         }
     }
+
 
 
     public void stopListening() {
