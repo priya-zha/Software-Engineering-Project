@@ -23,14 +23,9 @@ ZONE_POLYGON = np.array([
 @app.route("/process-image", methods=["POST"])
 def process_image():
     try:
-        #[REFACTOR 2] Remove unwanted print statement/Replace with logger
-        # print("Script is running")
-        # app.logger.info("Script started running")
-
-        
+        app.logger.info("Script started running")
         uploaded_image = request.files['image']
-        # print("Script is running")
-        # app.logger.info("uploaded file %s",uploaded_image.filename)
+        app.logger.info("uploaded file %s",uploaded_image.filename)
         print(uploaded_image)
         #[REFACTOR 3]
         # instead of if uploaded_image.filename != '':
@@ -48,18 +43,6 @@ def process_image():
                 in detections
             ]
             image = sv.BoxAnnotator(thickness=2, text_thickness=2, text_scale=1).annotate(image, detections, labels)
-            """
-            # Save the annotated image to a BytesIO object
-            annotated_image_io = BytesIO()
-            cv2.imwrite("annotated_image.jpg", image)
-
-            # Set the BytesIO object's cursor position to the beginning
-            annotated_image_io.seek(0)
-
-            return send_file(annotated_image_io, mimetype="image/jpeg")
-            
-
-            """
             success, encoded_image = cv2.imencode(".jpg", image)
             if not success:
                 return jsonify({"error": "Failed to encode the image"})
