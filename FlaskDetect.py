@@ -226,7 +226,45 @@ def run(
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
     return f'{txt_path}.txt'
 
+from PIL import Image
 
+import cv2
+
+class ValidateInputMedia:
+
+    @staticmethod
+    def is_valid_media(file_path):
+        if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+            return ValidateInputMedia.is_valid_video_file(file_path)
+        elif file_path.lower().endswith(('.mov', '.avi', '.mp4', '.mkv', '.webm')):
+            return ValidateInputMedia.is_valid_video_file(file_path)
+        # if ValidateInputMedia.is_valid_video_file(filepath) or ValidateInputMedia.is_valid_video_file(filepath):
+        #     return True
+        return False
+
+    @staticmethod
+    def is_valid_image_file(file_path):
+        try:
+            img = Image.open(file_path)
+            img.verify()  # Check the image file's integrity
+            return True
+        except Exception as e:
+            print(f"Error while checking image validity: {str(e)}")
+            return False
+
+
+    # Define the is_valid_video_file function
+    @staticmethod
+    def is_valid_video_file(file_path):
+        try:
+            cap = cv2.VideoCapture(file_path)
+            if not cap.isOpened():
+                return False  # The file is not a valid video file or doesn't exist.
+            cap.release()  # Release the video capture object.
+            return True
+        except Exception as e:
+            print(f"Error while checking video validity: {str(e)}")
+        return False
 
 app = Flask(__name__)
 
@@ -243,21 +281,30 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}),400
-
     file = request.files['file']
-
     if file.filename == '':
-        return jsonify({'error': 'No selected file'})
-
+        return jsonify({'error': 'No selected file'}),400
     if file:
         filename = file.filename
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         file_size = len(file.read())
         print("File received filename:{},filesize:{}".format(file.filename,file_size))
+        if ValidateInputMedia.is_valid_media(file_path):
+            print(f"{file_path} is a valid video/video file.")
+        else:
+            print(f"{file_path} is not a valid video/image file.")
+            return jsonify({'Error': f"{file_path} is not a valid video/image file."}),400
         # return jsonify({'filename': filename, 'size': file_size})
-        result = run(source = os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        try:
+            result = run(source = os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        except Exception as e:
+            print(e)
+            return jsonify({"Error": "Improper request"+str(e)}),400
         return jsonify({"result":open(result).read()})
     
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
