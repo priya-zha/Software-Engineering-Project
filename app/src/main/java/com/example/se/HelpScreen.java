@@ -45,6 +45,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Added the camera navigation function which interm calls the camera stream activity
                 navigateToSecondPage();
             }
         });
@@ -91,11 +92,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
         // isListening = false;
     }
 
-    //    private void speakInstructions() {
-//        // Use TextToSpeech to provide voice instructions.
-//        isListening = false;
-//        textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-//    }
+   
     @Override
     protected void onPause() {
         super.onPause();
@@ -110,11 +107,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
     }
 
     public void speakInstructionsAndStartListening() {
-//    textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or say 'Start' to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-//    Toast.makeText(this, "what happenned", Toast.LENGTH_SHORT).show();
-        // Delay for a few seconds before starting speech recognition
-      //  textToSpeech.speak("Hi, Welcome to the Visual Aid. Let us help you get started. Click on the 'Start' button or you can say 'Start' when you hear a notification sound to initiate the process.", TextToSpeech.QUEUE_FLUSH, null);
-        Vibration();
+//    Vibration();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -162,7 +155,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
     }
     private void navigateToSecondPage() {
         Vibration();
-        // Handle navigation to the second page here
+        // Create a new intent for the Camera Module to start streaming.
         Intent intent = new Intent(this, CameraStream.class);
         startActivity(intent);
         finish();
