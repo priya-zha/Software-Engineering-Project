@@ -6,28 +6,45 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/responseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data"
-        android:textSize="18sp"
-        android:layout_centerInParent="true"
-        />
     <!-- add Camera Button to open the Camera -->
-    <Button
-        android:id="@+id/camera_button"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="150dp"
-        android:text="Camera" />
+<!--    <Button-->
+<!--        android:id="@+id/camera_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:text="Camera" />-->
 
     <!-- add ImageView to display the captured image -->
+
+
     <ImageView
         android:id="@+id/click_image"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginHorizontal="20sp"
         android:layout_marginTop="70dp"
         android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/labelText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/click_image"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#000897"
+        android:layout_above="@id/responseText"
+        />
+
+    <TextView
+        android:id="@+id/responseText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@color/black"
+        android:gravity="center"
+        android:padding="40sp"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
 </RelativeLayout>

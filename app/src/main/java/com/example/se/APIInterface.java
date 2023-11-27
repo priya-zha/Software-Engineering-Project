@@ -1,6 +1,7 @@
 package com.example.se;
 
 import com.example.se.pojo.MultipleResource;
+import com.example.se.pojo.ImageResponse;
 import com.example.se.pojo.User;
 import com.example.se.pojo.UserList;
 
@@ -34,5 +35,5 @@ interface APIInterface {
 
     @Multipart
     @POST("/process-image")
-    Call<ResponseBody> processImage(@Part MultipartBody.Part image);
+    Call<ImageResponse> processImage(@Part MultipartBody.Part image);
 }

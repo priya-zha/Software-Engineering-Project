@@ -29,4 +29,17 @@ public class MultipleResource {
         public String pantoneValue;
 
     }
+
+    public class ImageResponse {
+        private byte[] image;
+        private String additional_text;
+
+        public byte[] getImage() {
+            return image;
+        }
+
+        public String getAdditionalText() {
+            return additional_text;
+        }
+    }
 }

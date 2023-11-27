@@ -70,7 +70,7 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
             textToSpeech.setVoice(getDesiredVoice(selectedVoice));
             textToSpeech.speak("You have selected the " + selectedVoice + " voice.", TextToSpeech.QUEUE_FLUSH, null);
             // Update the ImageView based on the selected voice
-            int imageResource = (selectedVoice.equals("men")) ? R.drawable.male_image : R.drawable.female_image;
+            int imageResource = (selectedVoice.equals("men")) ? R.drawable.man : R.drawable.woman;
             voiceImageView.setImageResource(imageResource);
         });
 
@@ -95,18 +95,18 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Stop text-to-speech when the activity goes into the background
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-        }
-        if (speechRecognizer != null) {
-            speechRecognizer.cancel();
-            speechRecognizer.destroy();
-        }
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        // Stop text-to-speech when the activity goes into the background
+//        if (textToSpeech != null) {
+//            textToSpeech.stop();
+//        }
+//        if (speechRecognizer != null) {
+//            speechRecognizer.cancel();
+//            speechRecognizer.destroy();
+//        }
+//    }
 
     private void Vibration() {
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -133,7 +133,7 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
         Vibration();
         textToSpeech.speak("Let's us help you select the voice preference. You can select between a male voice and a female voice. Click on Male or Female option or just speak 'Male' to select the male voice, OR speak 'Female' to select a female voice so that you can hear sample voices and select the one according to your choice", TextToSpeech.QUEUE_FLUSH, null);
         PostDelayed(15000);
-        PostDelayed(30000);
+        PostDelayed(40000);
     }
 
     public void PostDelayed(int a) {

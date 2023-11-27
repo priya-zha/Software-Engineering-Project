@@ -86,6 +86,12 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
                     finish();
 
                 }
+                else if(recognizedText.equals("settings")){
+                    Intent intent = new Intent(this,settings.class);
+                    intent.putExtra("selectedVoiceName", selectedVoiceName);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }
         // isListening = false;
@@ -120,7 +126,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
             public void run() {
                 startListening();
             }
-        }, 30000); // Adjust the delay time as needed (e.g., 5000 milliseconds for a 5-second delay)
+        }, 40000); // Adjust the delay time as needed (e.g., 5000 milliseconds for a 5-second delay)
     }
     private void Vibration(){
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -164,6 +170,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
         Vibration();
         // Handle navigation to the second page here
         Intent intent = new Intent(this, MainActivity2.class);
+        intent.putExtra("selectedVoiceName", selectedVoiceName);
         startActivity(intent);
         finish();
 
@@ -187,7 +194,7 @@ public class HelpScreen extends AppCompatActivity implements TextToSpeech.OnInit
         if (status == TextToSpeech.SUCCESS) {
             Voice selectedVoice = getDesiredVoice(selectedVoiceName);
             textToSpeech.setVoice(selectedVoice);
-            textToSpeech.speak("This  help screen  is here to assist you in navigating the app.If you ever get stuck or have questions , refer to this guide for assistance by saying  Help  or clicking the  i  icon.    You can help use of voice assistance to navigate through the app by using basic navigation words like  'Next'  or  'Back'  or say button names read out at the beginning of every screen to access those screens. Please say 'Next' to navigate to the next screen", TextToSpeech.QUEUE_FLUSH, null);
+            textToSpeech.speak("This  help screen  is here to assist you in navigating the app.If you ever get stuck or have questions , refer to this guide for assistance by saying  Help  or clicking the  i  icon.    You can help use of voice assistance to navigate through the app by using basic navigation words like  'Next'  or  'Back'  or say button names read out at the beginning of every screen to access those screens. Please say 'Next' to navigate to the camera screen to detect objects OR if you wanna change the settings like changing voice or changing the font size of the application , you can say 'Settings' to navigate to the settings page", TextToSpeech.QUEUE_FLUSH, null);
 
         }
     }

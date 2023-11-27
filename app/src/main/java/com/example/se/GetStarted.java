@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.example.se.R;
 import com.example.se.splash;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,6 +28,7 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -46,6 +48,7 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
     private Button start;
     private boolean instructionsSpoken = false;
     private boolean isListening = false;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,11 @@ public class GetStarted extends AppCompatActivity implements TextToSpeech.OnInit
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
         textToSpeech = new TextToSpeech(this, this);
         instructionsSpoken = false;
+        imageView = findViewById(R.id.imageView);
+
+        Glide.with(this)
+                .load(R.drawable.mic)  // Replace with the actual resource ID of your GIF image
+                .into(imageView);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
