@@ -288,6 +288,7 @@ import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.util.Base64;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -341,7 +342,7 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
     TextView labeltext;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 100;
     private boolean instructionsSpoken = false;
-    int intValues, intVal;
+    int intValues, intVal, s=0;
 
 
     @Override
@@ -360,6 +361,8 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
        // camera_open_id = findViewById(R.id.camera_button);
         click_image_id = findViewById(R.id.click_image);
         responseText = findViewById(R.id.responseText);
+        responseText.setVisibility(View.VISIBLE);
+        responseText.setText("ok");
         labeltext = findViewById(R.id.labelText);
         if (intVal==0){
 
@@ -383,30 +386,14 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
 
     }
 
-
-    // This method will help to retrieve the image
 //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        // Match the request 'pic id with requestCode
-//        if (requestCode == pic_id && resultCode == RESULT_OK) {
-//            // BitMap is a data structure of the image file which stores the image in memory
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            // Set the image in the ImageView for display
-//            click_image_id.setImageBitmap(photo);
-//
-//            // Send the captured image to the Flask API
-//            sendImageToFlask(photo);
+//    protected void onResume() {
+//        super.onResume();
+//        if (!instructionsSpoken) {
+//          //  speakInstructionsAndStartListening();
+//            instructionsSpoken = true; // Set the flag to true after speaking the instructions
 //        }
 //    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!instructionsSpoken) {
-            speakInstructionsAndStartListening();
-            instructionsSpoken = true; // Set the flag to true after speaking the instructions
-        }
-    }
 
     @Override
     protected void onPause() {
@@ -454,16 +441,39 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
         //textToSpeech.speak("You're now on the Camera Screen. We need to open your camera app in order to describe the scene around you. Should we open the camera app for you? If yes, please say 'YES'. If no, Please say 'No'.", TextToSpeech.QUEUE_FLUSH, null);
         textToSpeech.speak("You're now on the Camera Screen. Your camera is open now. Please say click to click the picture.", TextToSpeech.QUEUE_FLUSH, null);
 
-        //PostDelayed(40000);
+       // PostDelayed(20000);
 
     }
     public void PostDelayed(int a) {
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 openVoiceRecognitionForPreference();
             }
         }, a);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        stopListening(); // Stop it here
+
+        if (speechRecognizer != null) {
+            speechRecognizer.cancel();
+            speechRecognizer.destroy();
+        }
+        new Handler().removeCallbacksAndMessages(null);
+    }
+
+    public void stopListening() {
+        // Stop speech recognition if needed
+//        speechRecognizer.cancel();
+//        isListening = false;
+        if (isListening) {
+            speechRecognizer.cancel();
+            isListening = false;
+        }
     }
 
     // This method will help to retrieve the image
@@ -472,7 +482,7 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
         super.onActivityResult(requestCode, resultCode, data);
         // Match the request 'pic id with requestCode
 
-            if (requestCode == pic_id && resultCode == RESULT_OK) {
+            if (s==0 && requestCode == pic_id && resultCode == RESULT_OK) {
                 // BitMap is a data structure of the image file which stores the image in memory
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
                 // Set the image in the ImageView for display
@@ -482,15 +492,25 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
                 sendImageToFlask(photo);
 
                 // Start voice recognition after capturing the image
-                startListening();
-            } else if (requestCode == SPEECH_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+               // startListening();
+                Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
+
+                s=1;
+
+
+
+            } else if (requestCode == VOICE_RECOGNITION_REQUEST_CODE && resultCode == Activity.RESULT_OK ) {
                 // Handle voice recognition result
                 ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 if (matches != null && !matches.isEmpty()) {
                     String recognizedText = matches.get(0).toLowerCase();
                     if (recognizedText.equals("yes")) {
                         // User wants to capture more images
+                        Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(this, MainActivity2.class);
+                        intent.putExtra("selectedVoiceName", selectedVoiceName);
+                        intent.putExtra("intValue", intValues);
+                        intent.putExtra("intVal", 5);
                         startActivity(intent);
                         finish();
                     } else if (recognizedText.equals("no")) {
@@ -500,52 +520,6 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
                 }
             }
         }
-
-
-//        if (requestCode == SPEECH_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-//            ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//            if (matches != null && !matches.isEmpty()) {
-//                String recognizedText = matches.get(0).toLowerCase();
-//                if (recognizedText.equals("yes")) {
-//                    // Change the color of the camera button to red
-//
-//                    Intent intent = new Intent(this, MainActivity2.class);
-//                    startActivity(intent);
-//                    finish();
-////                    Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-////                    // Start the activity with camera_intent and request pic id
-////                    startActivityForResult(camera_intent, pic_id);
-//                    // User said "start"
-//                } else if (recognizedText.equals("back")) {
-//                    Intent intent = new Intent(this, HelpScreen.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
-//            }
-//        }
-//       else if (requestCode == pic_id && resultCode == RESULT_OK) {
-//            // BitMap is a data structure of the image file which stores the image in memory
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            // Set the image in the ImageView for display
-//            click_image_id.setImageBitmap(photo);
-//
-//            // Send the captured image to the Flask API
-//            sendImageToFlask(photo);
-//            textToSpeech.speak( additionalText, TextToSpeech.QUEUE_FLUSH, null);
-//        }
-//        if (requestCode == pic_id && resultCode == RESULT_OK) {
-//            // BitMap is a data structure of the image file which stores the image in memory
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            // Set the image in the ImageView for display
-//            click_image_id.setImageBitmap(photo);
-//
-//            // Send the captured image to the Flask API
-//            sendImageToFlask(photo);
-//            textToSpeech.speak( additionalText, TextToSpeech.QUEUE_FLUSH, null);
-//
-//        }
-
-
 
     // Method to send the captured image to the Flask API
     private void sendImageToFlask(Bitmap photo) {
@@ -563,10 +537,10 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
         // Make the API call to process the image
         Call<ImageResponse> call = apiInterface.processImage(body);
         System.out.println("brr");
+        textToSpeech.speak("Please wait", TextToSpeech.QUEUE_FLUSH, null);
         call.enqueue(new Callback<ImageResponse>() {
             @Override
             public void onResponse(Call<ImageResponse> call, Response<ImageResponse> response) {
-                textToSpeech.speak("Please wait", TextToSpeech.QUEUE_FLUSH, null);
 
                 if (response.isSuccessful()) {
 
@@ -603,9 +577,21 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
                     // Update your UI with the annotated image
                     click_image_id.setImageBitmap(bitmap);
                     responseText.setText(additionalText);
+                  //  Toast.makeText(MainActivity2.this, ""+responseText, Toast.LENGTH_SHORT).show();
                     showTextWithAnimation();
                     labeltext.setText("Objects detected: "+ labelList.toString());
                     textToSpeech.speak("There is "+additionalText, TextToSpeech.QUEUE_FLUSH, null);
+                    Log.d("MyApp", "additionalText: " + additionalText);
+                    Log.d("MyApp", "responseText: " + responseText.getText());
+
+                   // textToSpeech.speak("Do you want to capture more? If yes, please say YES else please say NO", TextToSpeech.QUEUE_FLUSH, null);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            textToSpeech.speak("Do you want to capture more.If yes, please say YES else please say NO", TextToSpeech.QUEUE_FLUSH, null);
+                        }
+                    }, 10000);
+                    PostDelayed(15000);
 
 //                    new Handler().postDelayed(new Runnable() {
 //                        @Override
@@ -617,6 +603,7 @@ public class MainActivity2 extends AppCompatActivity implements TextToSpeech.OnI
 
 
                     Toast.makeText(MainActivity2.this, "Objects: " + labelText, Toast.LENGTH_SHORT).show();
+
 
                 } else {
                     // Handle the error

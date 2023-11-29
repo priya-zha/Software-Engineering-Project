@@ -145,6 +145,7 @@ public class VoiceSelection extends Activity implements TextToSpeech.OnInitListe
         }, a);
     }
 
+
     public void stopListening() {
         if (isListening) {
             speechRecognizer.cancel();
