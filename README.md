@@ -25,3 +25,7 @@ and interact with the visual world around them. By harnessing the potential of A
 learning, we aim to provide a transformative tool that empowers blind users to navigate and
 comprehend the visual aspects of their daily lives.
 
+
+Demo for the project:
+
+https://drive.google.com/file/d/1BEPPVVYCKYc_QGZpzo1MjYX6c2VgZYxV/view?usp=sharing
