@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HelpScreen">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:src="@drawable/logo"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help Screen"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginVertical="40sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This help screen is here to assist you in navigating the app.If you ever get stuck or have questions , refer to this guide for assistance by saying Help or clicking the i icon."
+        android:paddingHorizontal="20sp"
+        android:layout_marginVertical="20sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navigation"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginVertical="40sp"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You can help use of voice assistance to navigate through the app by using basic navigation words like 'Next' or 'Back' or say button names read out at the beginning of every screen to access those screens"
+        android:paddingHorizontal="20sp"
+        android:layout_marginVertical="20sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="140dp"
+            android:text="Next" />
+
+    </LinearLayout>
+
+</LinearLayout>
