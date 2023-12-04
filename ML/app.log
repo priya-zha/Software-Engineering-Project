@@ -1,0 +1,406 @@
+2023-11-23 19:04:55,312 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2023-11-23 19:04:55,312 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-23 19:04:55,312 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:05:05,080 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:05:05,080 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:06:29,963 - werkzeug - INFO - 127.0.0.1 - - [23/Nov/2023 19:06:29] "[33mGET / HTTP/1.1[0m" 404 -
+2023-11-23 19:09:01,322 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 19:09:03,473 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:09:31,174 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.154:5000
+2023-11-23 19:09:31,174 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-23 19:09:31,189 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:09:42,662 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:09:42,669 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:09:51,829 - __main__ - INFO - Processing image
+2023-11-23 19:09:56,824 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:10:02,653 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:10:02] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:11:05,815 - __main__ - INFO - Processing image
+2023-11-23 19:11:07,688 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:11:13,912 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:11:13] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:14:04,118 - __main__ - INFO - Processing image
+2023-11-23 19:14:06,375 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:14:15,509 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:14:15] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:14:55,529 - __main__ - INFO - Processing image
+2023-11-23 19:14:57,432 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:15:03,883 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:15:03] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:17:08,598 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 19:17:11,146 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:17:26,265 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:17:26,272 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:18:25,474 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.154:5000
+2023-11-23 19:18:25,474 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-23 19:18:25,482 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:18:38,339 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:18:38,355 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:18:53,155 - __main__ - INFO - Processing image
+2023-11-23 19:18:56,394 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:19:02,080 - __main__ - INFO - Compressing image
+2023-11-23 19:19:02,080 - __main__ - ERROR - Error compressing image: 'NoneType' object has no attribute 'tobytes'
+2023-11-23 19:19:02,086 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:19:02] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:20:31,179 - __main__ - INFO - Processing image
+2023-11-23 19:23:21,193 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.154:5000
+2023-11-23 19:23:21,193 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-23 19:23:21,205 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:23:32,263 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:23:32,278 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:23:40,709 - __main__ - INFO - Processing image
+2023-11-23 19:24:12,793 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:24:21,044 - __main__ - INFO - Compressing image
+2023-11-23 19:24:21,067 - __main__ - ERROR - Error compressing image: 'NoneType' object has no attribute 'tobytes'
+2023-11-23 19:24:21,163 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:24:21] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:24:42,331 - __main__ - INFO - Processing image
+2023-11-23 19:24:44,662 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:24:51,622 - __main__ - INFO - Compressing image
+2023-11-23 19:24:51,622 - __main__ - ERROR - Error compressing image: 'NoneType' object has no attribute 'tobytes'
+2023-11-23 19:24:51,622 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 19:24:51] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:30:52,638 - __main__ - INFO - Processing image
+2023-11-23 19:30:55,273 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:31:05,426 - __main__ - INFO - Compressing image
+2023-11-23 19:31:05,427 - __main__ - ERROR - Error compressing image: 'NoneType' object has no attribute 'tobytes'
+2023-11-23 19:31:05,440 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 19:31:05] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 19:31:46,557 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 19:31:49,521 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:32:40,311 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.154:5000
+2023-11-23 19:32:40,311 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-23 19:32:40,314 - werkzeug - INFO -  * Restarting with stat
+2023-11-23 19:32:55,470 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 19:32:55,483 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 19:32:57,011 - __main__ - INFO - Processing image
+2023-11-23 19:33:00,505 - __main__ - ERROR - Error processing image: 'Results' object has no attribute 'xyxy'. See valid attributes below.
+
+    A class for storing and manipulating inference results.
+
+    Args:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        path (str): The path to the image file.
+        names (dict): A dictionary of class names.
+        boxes (torch.tensor, optional): A 2D tensor of bounding box coordinates for each detection.
+        masks (torch.tensor, optional): A 3D tensor of detection masks, where each mask is a binary image.
+        probs (torch.tensor, optional): A 1D tensor of probabilities of each class for classification task.
+        keypoints (List[List[float]], optional): A list of detected keypoints for each object.
+
+    Attributes:
+        orig_img (numpy.ndarray): The original image as a numpy array.
+        orig_shape (tuple): The original image shape in (height, width) format.
+        boxes (Boxes, optional): A Boxes object containing the detection bounding boxes.
+        masks (Masks, optional): A Masks object containing the detection masks.
+        probs (Probs, optional): A Probs object containing probabilities of each class for classification task.
+        names (dict): A dictionary of class names.
+        path (str): The path to the image file.
+        keypoints (Keypoints, optional): A Keypoints object containing detected keypoints for each object.
+        speed (dict): A dictionary of preprocess, inference and postprocess speeds in milliseconds per image.
+        _keys (tuple): A tuple of attribute names for non-empty attributes.
+    
+2023-11-23 19:33:08,142 - __main__ - INFO - Compressing image
+2023-11-23 19:33:08,142 - __main__ - ERROR - Error compressing image: 'NoneType' object has no attribute 'tobytes'
+2023-11-23 19:33:08,146 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 19:33:08] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:14:09,290 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:14:09,301 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:14:09,919 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:14:09] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:15:15,563 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:15:39,458 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:15:39,469 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:15:39,871 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:15:39] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:16:28,565 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:16:28] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:23:38,231 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:23:38] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:29:21,494 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:29:51,568 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:29:51,593 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:29:58,377 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:29:58] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:30:39,573 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:31:03,538 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:31:03,543 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:31:03,933 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:31:03] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:32:54,741 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:33:14,905 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:33:14,910 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:33:15,276 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:33:15] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:34:18,236 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:34:40,980 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:34:40,984 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:34:47,056 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:34:47] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:35:03,825 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:35:26,117 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:35:26,127 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:35:32,569 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:35:32] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:39:16,547 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:39:43,035 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:39:43,046 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:40:29,884 - werkzeug - INFO - 192.168.1.154 - - [23/Nov/2023 23:40:29] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:47:07,414 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:47:07] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:47:22,953 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:47:22] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:48:00,143 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:48:00] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:48:37,776 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:48:37] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:50:23,229 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:50:23] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:51:23,568 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-23 23:51:57,588 - werkzeug - WARNING -  * Debugger is active!
+2023-11-23 23:51:57,604 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-23 23:52:52,356 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:52:52] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:53:19,478 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:53:19] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:54:39,544 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:54:39] "POST /process-image HTTP/1.1" 200 -
+2023-11-23 23:56:45,015 - werkzeug - INFO - 192.168.1.67 - - [23/Nov/2023 23:56:45] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:03:38,194 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:03:38] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:09:50,133 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:09:50] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:12:35,603 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:12:35] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:12:50,675 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:12:50] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:13:06,223 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:13:06] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:13:25,105 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:13:25] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:14:37,097 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:14:37] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:18:19,417 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:18:19] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:18:48,294 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:18:48] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:25:40,657 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:25:40] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:30:37,101 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:30:37] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:34:26,571 - werkzeug - INFO - 192.168.1.67 - - [24/Nov/2023 00:34:26] "POST /process-image HTTP/1.1" 200 -
+2023-11-24 00:35:05,811 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main.py', reloading
+2023-11-24 00:35:28,118 - werkzeug - WARNING -  * Debugger is active!
+2023-11-24 00:35:28,134 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 11:35:46,331 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2023-11-29 11:35:46,331 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-29 11:35:46,336 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 11:36:08,808 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 11:36:08,820 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 11:36:28,318 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 11:36:28] "POST /process-image HTTP/1.1" 200 -
+2023-11-29 11:54:53,823 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main_updated.py', reloading
+2023-11-29 11:54:55,176 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 11:55:27,745 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2023-11-29 11:55:27,745 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-29 11:55:27,745 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 11:55:51,436 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 11:55:51,436 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 11:57:57,175 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 11:57:57] "POST /process-image HTTP/1.1" 200 -
+2023-11-29 12:04:36,581 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main_updated.py', reloading
+2023-11-29 12:04:37,639 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 12:05:13,308 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2023-11-29 12:05:13,308 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-11-29 12:05:13,316 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 12:05:31,293 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 12:05:31,301 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 12:05:31,496 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:05:31] "POST /process-query HTTP/1.1" 200 -
+2023-11-29 12:06:22,687 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:06:22] "[35m[1mPOST /process-query HTTP/1.1[0m" 500 -
+2023-11-29 12:08:20,992 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main_updated.py', reloading
+2023-11-29 12:08:21,859 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 12:08:43,204 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 12:08:43,204 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 12:09:05,531 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:09:05] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:09:37,177 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:09:37] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:09:46,228 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:09:46] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:10:15,824 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main_updated.py', reloading
+2023-11-29 12:10:16,932 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 12:10:36,236 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 12:10:36,244 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 12:10:36,440 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:10:36] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:10:43,435 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:10:43] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:10:46,552 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:10:46] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:10:49,608 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:10:49] "[31m[1mGET /process-image HTTP/1.1[0m" 405 -
+2023-11-29 12:11:40,014 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:11:40] "POST /process-image HTTP/1.1" 200 -
+2023-11-29 12:11:46,314 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:11:46] "POST /process-query HTTP/1.1" 200 -
+2023-11-29 12:12:01,764 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:12:01] "POST /process-query HTTP/1.1" 200 -
+2023-11-29 12:17:11,520 - werkzeug - INFO -  * Detected change in 'C:\\Users\\ANNA\\Desktop\\Project\\SE\\project\\ML\\main_updated.py', reloading
+2023-11-29 12:17:12,540 - werkzeug - INFO -  * Restarting with stat
+2023-11-29 12:17:34,754 - werkzeug - WARNING -  * Debugger is active!
+2023-11-29 12:17:34,765 - werkzeug - INFO -  * Debugger PIN: 110-699-082
+2023-11-29 12:17:52,128 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:17:52] "POST /process-image HTTP/1.1" 200 -
+2023-11-29 12:18:12,655 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 12:18:12] "POST /process-query HTTP/1.1" 200 -
+2023-11-29 16:16:00,296 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 16:16:00] "POST /process-image HTTP/1.1" 200 -
+2023-11-29 16:16:28,301 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 16:16:28] "POST /process-query HTTP/1.1" 200 -
+2023-11-29 16:17:21,743 - werkzeug - INFO - 127.0.0.1 - - [29/Nov/2023 16:17:21] "POST /process-query HTTP/1.1" 200 -
